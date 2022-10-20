@@ -1,9 +1,10 @@
 package Model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Storage {
-    private LinkedList<Event> eventList;
+    private HashMap<String,Event> eventList;
     private static Storage instance;
 
     private Storage() {
