@@ -3,24 +3,27 @@ package DataReading;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParserCSV {
 
-    public static void parceCSV() {
-        String line = "";
-        String splitBy = ",";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(".idea/DataIn.csv"));
-            while ((line = br.readLine()) != null)   //check are we have a next line
-            {
-                String[] ivents = line.split(splitBy);    // use comma as separator
-                System.out.println("Event type" + ivents[0] + ivents[1] + ", Designation=" + ivents[2]
-                        + ", Contact=" + ivents[3]);
+    public static final String SPLIT_BY = ",";
+
+    public static List<String[]> parceCsv()  {
+        String line;
+        List<String[]> saveEvent = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(".idea/DataIn.csv"))) {
+            while ((line = br.readLine()) != null) {
+                String[] events = line.split(SPLIT_BY);
+                saveEvent.add(events);
             }
-            br.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Даний файл не знайдено або він є пошкодженим");
         }
+        return saveEvent;
     }
 }
+
+
 
