@@ -9,11 +9,12 @@ import java.util.List;
 public class ParserCSV {
 
     public static final String SPLIT_BY = ",";
+    public static final String FILE_NAME = ".idea/DataIn.csv";
 
     public static List<String[]> parceCsv()  {
         String line;
         List<String[]> saveEvent = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(".idea/DataIn.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             while ((line = br.readLine()) != null) {
                 String[] events = line.split(SPLIT_BY);
                 saveEvent.add(events);
