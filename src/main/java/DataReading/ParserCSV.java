@@ -19,7 +19,7 @@ public class ParserCSV {
                 saveEvent.add(events);
             }
         } catch (IOException e) {
-            System.out.println("Даний файл не знайдено або він є пошкодженим");
+            System.out.println("The given file was not found or it is corrupted");
         }
         return saveEvent;
     }
