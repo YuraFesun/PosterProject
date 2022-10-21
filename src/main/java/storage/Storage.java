@@ -1,4 +1,6 @@
-package Models;
+package storage;
+
+import models.Event;
 
 import java.util.HashMap;
 import java.util.LinkedList;
