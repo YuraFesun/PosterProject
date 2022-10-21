@@ -1,10 +1,10 @@
-package Model;
+package Models;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Storage {
-    private HashMap<String,Event> eventList;
+    private HashMap <String, LinkedList<Event>> eventList;
     private static Storage instance;
 
     private Storage() {
