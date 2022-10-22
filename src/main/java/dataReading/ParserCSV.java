@@ -14,7 +14,7 @@ public class ParserCSV {
     public static final String SPLIT_BY = ",";
     public static final String FILE_NAME = "DataIn.csv";
 
-    public List<String[]> parseCsv()  {
+    public static List<String[]> parseCsv()  {
         String line;
         List<String[]> saveEvent = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
