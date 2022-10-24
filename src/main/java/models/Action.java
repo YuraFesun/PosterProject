@@ -10,6 +10,26 @@ public class Action {
     private int ticketsQuantity;
     private LocalDateTime dateTime;
 
+    public ActionType getActionType() {
+        return actionType;
+    }
+
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public int getTicketsQuantity() {
+        return ticketsQuantity;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
     public void setActionType(ActionType actionType) {
         this.actionType = actionType;
     }

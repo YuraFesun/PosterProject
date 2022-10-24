@@ -1,4 +1,4 @@
-package dataReading;
+package workingWithFiles;
 
 import exception.BadFileReaderException;
 
