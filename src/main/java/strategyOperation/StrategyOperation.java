@@ -2,9 +2,9 @@ package strategyOperation;
 
 import models.ActionType;
 import service.Operations;
-import service.implementation.BuyOperation;
-import service.implementation.CancelOperation;
-import service.implementation.GetOperation;
+import service.impl.BuyOperation;
+import service.impl.CancelOperation;
+import service.impl.GetOperation;
 
 import java.util.HashMap;
 import java.util.Map;

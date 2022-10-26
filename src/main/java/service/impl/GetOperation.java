@@ -1,9 +1,9 @@
-package service.implementation;
+package service.impl;
 
+import exception.EmptyStorage;
 import models.Event;
 import service.Operations;
 import storage.Storage;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -14,10 +14,17 @@ public class GetOperation implements Operations {
     }
     @Override
     public void doOperation(Event event) {
+
+        if (eventMap == null) {
+            throw new EmptyStorage();
+        }
+
         LinkedList<Event> eventList = eventMap.get(event.getEventName());
+
         if (eventList == null) {
             eventList = new LinkedList<>();
         }
+
         eventList.add(event);
         eventMap.put(event.getEventName(), eventList);
         }
