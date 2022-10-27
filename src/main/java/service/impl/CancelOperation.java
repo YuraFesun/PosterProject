@@ -1,16 +1,18 @@
 package service.impl;
 
 import exception.EventNotFound;
+import exception.NotEnoughTickets;
 import exception.ObjectNotFound;
 import models.Event;
 import service.Operations;
 import storage.Storage;
-import java.util.HashMap;
-import java.util.LinkedList;
-import static models.ActionType.CANCEL;
+import java.util.List;
+import java.util.Map;
+
+import static models.ActionType.GET;
 
 public class CancelOperation implements Operations {
-    static HashMap<String, LinkedList<Event>> eventMap;
+    static Map<String, List<Event>> eventMap;
 
     static {
         eventMap = Storage.getInstance().getEventMap();
@@ -18,17 +20,17 @@ public class CancelOperation implements Operations {
 
     @Override
     public void doOperation(Event event) {
-        LinkedList<Event> eventList = eventMap.get(event.getEventName());
+        List<Event> eventList = eventMap.get(event.getEventName());
 
         if (eventList == null) {
             throw new ObjectNotFound();
         }
 
         eventList.stream()
-                .filter(e -> e.getActionType().equals(CANCEL) &&
+                .filter(e -> e.getActionType().equals(GET) &&
                         e.getDateTime().isAfter(event.getDateTime().plusDays(1)))
                 .findAny()
-                .orElseThrow(EventNotFound::new);
+                .orElseThrow(() -> new EventNotFound(event.getEventName()));
 
         eventList.add(event);
     }

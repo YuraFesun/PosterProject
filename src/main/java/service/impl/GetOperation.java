@@ -4,11 +4,12 @@ import exception.EmptyStorage;
 import models.Event;
 import service.Operations;
 import storage.Storage;
-import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class GetOperation implements Operations {
-    static HashMap<String, LinkedList<Event>> eventMap;
+    static Map<String, List<Event>> eventMap;
     static {
          eventMap = Storage.getInstance().getEventMap();
     }
@@ -19,7 +20,7 @@ public class GetOperation implements Operations {
             throw new EmptyStorage();
         }
 
-        LinkedList<Event> eventList = eventMap.get(event.getEventName());
+        List<Event> eventList = eventMap.get(event.getEventName());
 
         if (eventList == null) {
             eventList = new LinkedList<>();

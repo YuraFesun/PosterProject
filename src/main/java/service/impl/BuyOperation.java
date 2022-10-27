@@ -1,19 +1,19 @@
 package service.impl;
 
 import exception.NoEventsForThisDate;
+import exception.NotEnoughTickets;
 import exception.ObjectNotFound;
-import models.ActionType;
 import models.Event;
 import service.Operations;
 import storage.Storage;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import static models.ActionType.GET;
 
 public class BuyOperation implements Operations {
-    static HashMap<String, LinkedList<Event>> eventMap;
+    static Map<String, List<Event>> eventMap;
 
     static {
         eventMap = Storage.getInstance().getEventMap();
@@ -21,7 +21,7 @@ public class BuyOperation implements Operations {
 
     @Override
     public void doOperation(Event event) {
-        LinkedList<Event> list = eventMap.get(event.getEventName());
+        List<Event> list = eventMap.get(event.getEventName());
 
         if (list == null || list.size() == 0) {
             throw new ObjectNotFound();
@@ -43,7 +43,7 @@ public class BuyOperation implements Operations {
         int remainingTickets = event.getTicketsQuantity();
 
         if (currentQuantity < remainingTickets) {
-            throw new RuntimeException();
+            throw new NotEnoughTickets(event.getEventName());
         }
 
         for (Event currentEvent : sortedList) {

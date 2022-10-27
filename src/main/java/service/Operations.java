@@ -1,6 +1,5 @@
 package service;
 
-import exception.ObjectNotFound;
 import models.Event;
 
 public interface Operations {
