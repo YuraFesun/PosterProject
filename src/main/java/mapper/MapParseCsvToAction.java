@@ -1,6 +1,6 @@
 package mapper;
 
-import models.Action;
+import models.Event;
 import models.ActionType;
 import models.EventType;
 import java.time.LocalDateTime;
@@ -10,15 +10,15 @@ public class MapParseCsvToAction {
     public static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    public Action map(String[] arr) {
-        Action action = new Action();
+    public Event map(String[] arr) {
+        Event event = new Event();
 
-        action.setActionType(ActionType.valueOf(arr[0].toUpperCase()));
-        action.setDateTime(LocalDateTime.parse(arr[4], FORMATTER));
-        action.setEventType(EventType.valueOf(arr[1].toUpperCase()));
-        action.setEventName(arr[2]);
-        action.setTicketsQuantity(Integer.parseInt(arr[3]));
+        event.setActionType(ActionType.valueOf(arr[0].toUpperCase()));
+        event.setDateTime(LocalDateTime.parse(arr[4], FORMATTER));
+        event.setEventType(EventType.valueOf(arr[1].toUpperCase()));
+        event.setEventName(arr[2]);
+        event.setTicketsQuantity(Integer.parseInt(arr[3]));
 
-        return action;
+        return event;
     }
 }

@@ -1,0 +1,3 @@
+service\impl\BuyOperationTest.class
+service\impl\GetOperationTest.class
+csvWorker\ParserCSVTest.class
