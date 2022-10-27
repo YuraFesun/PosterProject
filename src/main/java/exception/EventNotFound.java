@@ -1,7 +1,7 @@
 package exception;
 
 public class EventNotFound extends RuntimeException {
-    public EventNotFound() {
-        super("Event not found pr passed");
+    public EventNotFound(String eventName) {
+        super(eventName + " not found or passed");
     }
 }
