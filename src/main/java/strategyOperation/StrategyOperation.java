@@ -5,12 +5,10 @@ import service.Operations;
 import service.impl.BuyOperation;
 import service.impl.CancelOperation;
 import service.impl.GetOperation;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class StrategyOperation {
-
     public Map<ActionType, Operations> strategyMap = new HashMap<>();
 
     public void initialize() {
@@ -18,7 +16,4 @@ public class StrategyOperation {
         strategyMap.put(ActionType.BUY, new BuyOperation());
         strategyMap.put(ActionType.CANCEL, new CancelOperation());
     }
-
-
-
 }
