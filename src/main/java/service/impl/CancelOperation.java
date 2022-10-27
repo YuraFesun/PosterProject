@@ -1,14 +1,12 @@
 package service.impl;
 
 import exception.EventNotFound;
-import exception.NotEnoughTickets;
 import exception.ObjectNotFound;
 import models.Event;
 import service.Operations;
 import storage.Storage;
 import java.util.List;
 import java.util.Map;
-
 import static models.ActionType.GET;
 
 public class CancelOperation implements Operations {

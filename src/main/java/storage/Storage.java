@@ -9,8 +9,7 @@ public class Storage {
     public static Map <String, List<Event>> eventMap;
     private static Storage instance;
 
-    private Storage() {
-    }
+    private Storage() {}
 
     public Map<String, List<Event>> getEventMap() {
         return eventMap;
