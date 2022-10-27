@@ -10,7 +10,8 @@ public class Event {
     private int ticketsQuantity;
     private LocalDateTime dateTime;
 
-    public Event(ActionType actionType, EventType eventType, String eventName, int ticketsQuantity, LocalDateTime dateTime) {
+    public Event(ActionType actionType, EventType eventType, String eventName,
+                 int ticketsQuantity, LocalDateTime dateTime) {
         this.actionType = actionType;
         this.eventType = eventType;
         this.eventName = eventName;
@@ -18,8 +19,7 @@ public class Event {
         this.dateTime = dateTime;
     }
 
-    public Event() {
-    }
+    public Event() {}
 
     public ActionType getActionType() {
         return actionType;

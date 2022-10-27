@@ -1,23 +1,22 @@
 package storage;
 
-
 import models.Event;
-
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class Storage {
-    public static HashMap <String, LinkedList<Event>> eventMap;
+    public static Map <String, List<Event>> eventMap;
     private static Storage instance;
 
     private Storage() {
     }
 
-    public HashMap<String, LinkedList<Event>> getEventMap() {
+    public Map<String, List<Event>> getEventMap() {
         return eventMap;
     }
 
-    public static void setEventMap(HashMap<String, LinkedList<Event>> eventMap) {
+    public static void setEventMap(Map<String, List<Event>> eventMap) {
         Storage.eventMap = eventMap;
     }
 
